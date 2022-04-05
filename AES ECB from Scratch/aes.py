@@ -70,6 +70,8 @@ def add_round_key(state, round_key):
             state[y][x] ^= round_key[i]
             i += 1
 
+start = time.time()
+
 def encrypt(msg, key):
     expanded_key = [None] * 176
     state = new_matrix(4, 4)
@@ -103,3 +105,7 @@ if __name__ == '__main__':
             0x0d, 0x0e, 0x0f, 0x10]
 
     print(encrypt(msg, key))
+
+end = time.time()                                                                      
+
+print('\nExecution Time: ', end-start)
