@@ -4,6 +4,7 @@ from tables import s_box, rcon
 from utils import *
 
 from copy import deepcopy
+import time
 
 def key_expansion_core(row, i):
     rotate_row(row, -1)
@@ -70,7 +71,7 @@ def add_round_key(state, round_key):
             state[y][x] ^= round_key[i]
             i += 1
 
-start = time.time()
+start = time.time()    
 
 def encrypt(msg, key):
     expanded_key = [None] * 176
